@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    build: ./nginx
+    image: challenge/nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - web:web
+  
+  web:
+    restart: always
+    build: ./web
+    image: challenge/web:latest
